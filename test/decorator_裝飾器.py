@@ -29,3 +29,27 @@ def test1():
 
   
 test1()
+
+
+# 1.4被裝飾的函數有參數
+def outer(fn):
+    def inner(name):  # 內函數，name是內函數的參數
+        print(f"{name}是inner函數中的參數")
+        print("哈哈")
+        fn(name)
+    return inner
+# @outer
+
+
+def func(name):
+    print("這是被裝飾的函數")
+
+
+# func('bingbing')
+ot = outer(func)  # ot = inner
+ot('bingbing')  # 呼叫內函數
+
+
+# func('bingbing')
+ot = outer(func)   # ot = inner
+ot('bingbing')   # 調用內函數
